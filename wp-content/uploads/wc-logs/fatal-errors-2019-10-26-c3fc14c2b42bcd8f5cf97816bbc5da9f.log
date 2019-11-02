@@ -1,0 +1,4 @@
+2019-10-26T14:50:21+00:00 CRITICAL syntax error, unexpected '<' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\inc\setup.php on line 111
+
+2019-10-26T15:29:07+00:00 CRITICAL syntax error, unexpected 'wp_enqueue_script' (T_STRING) in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\inc\setup.php on line 133
+
