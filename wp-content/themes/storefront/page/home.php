@@ -358,28 +358,20 @@
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
 						All Products
 					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-						Women
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-						Men
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-						Bag
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-						Shoes
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-						Watches
-					</button>
+					<?php
+						$categories = get_terms('product_cat'); 
+						foreach ($categories as $category) {
+						
+							if($category->name != 'Uncategorized') {
+							?>
+							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".<?=$category->slug ?>">
+								<?=$category->name ?>
+							</button>
+							<?php
+							}
+					    }
+					?>
 				</div>
-
 				<div class="flex-w flex-c-m m-tb-10">
 					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
 						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
@@ -397,11 +389,10 @@
 				<!-- Search product -->
 				<div class="dis-none panel-search w-full p-t-10 p-b-15">
 					<div class="bor8 dis-flex p-l-15">
-						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04 submit-search">
 							<i class="zmdi zmdi-search"></i>
 						</button>
-
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+						<input type="text" class="quicksearch mtext-107 cl2 size-114 plh2 p-r-15 search-product" name="search-product" placeholder="Search" />
 					</div>	
 				</div>
 
@@ -594,8 +585,12 @@
 					</div>
 				</div>
 			</div>
-			<?php 
+		
 
+			<div class="row isotope-grid">
+				<div class="has-search">
+				<?php 
+					
 				$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
 
 					$args = array(
@@ -614,146 +609,80 @@
 					    )
 					);
 
-				$loop = new WP_Query( $args );
+					$loop = new WP_Query( $args );
+					if ( $loop->have_posts() ) :
+					while ( $loop->have_posts() ) : $loop->the_post();
+				  	$terms = get_the_terms( $post->ID, 'product_cat' );
+				 
+				  	
+				  	?>
+					
+					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?= $terms[0]->slug ?>">
+						<!-- Block2 -->
+						<div class="block2">
+							<div class="block2-pic hov-img0 label-new" data-label="New">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/product-01.jpg" alt="IMG-PRODUCT">
 
-				var_dump($loop);
-				// if ( $loop->have_posts() ) :
-				// $i= 0;
-				// while ( $loop->have_posts() ) : $loop->the_post();
-				// $image = get_the_post_thumbnail_url($post->ID, ITEM_PRODUCT_HOME);
+								<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+									Quick View
+								</a>
+							</div>
 
-		// 	endwhile;
-		// endif;
+							<div class="block2-txt flex-w flex-t p-t-14">
+								<div class="block2-txt-child1 flex-col-l ">
+									<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+										<?=$post->post_title; ?>
+									</a>
+
+									<span class="stext-105 cl3">
+										$16.64
+									</span>
+								</div>
+
+								<div class="block2-txt-child2 flex-r p-t-3">
+									<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+										<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart1 dis-block trans-04" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-01.png" alt="ICON">
+										<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart2 dis-block trans-04 ab-t-l" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-02.png" alt="ICON">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+
+				<?php
+				endwhile;
+				endif;
 
 			?>
+			<div class="grid">
+  <div class="color-shape small round red">Hydrogen</div>
+  <div class="color-shape small round blue">Helium</div>
+  <div class="color-shape small round yellow">Lithium</div>
+  <div class="color-shape small square red">Beryllium</div>
+  <div class="color-shape small square blue">Boron</div>
+  <div class="color-shape small square yellow">Carbon</div>
+  <div class="color-shape wide round red">Nitrogen</div>
+  <div class="color-shape wide round blue">Oxygen</div>
+  <div class="color-shape wide round yellow">Fluorine</div>
+  <div class="color-shape wide square red">Neon</div>
+  <div class="color-shape wide square blue">Sodium</div>
+  <div class="color-shape wide square yellow">Magnesium</div>
+  <div class="color-shape big round red">Aluminum</div>
+  <div class="color-shape big round blue">Silicon</div>
+  <div class="color-shape big round yellow">Phosphorus</div>
+  <div class="color-shape big square red">Sulfur</div>
+  <div class="color-shape big square blue">Chlorine</div>
+  <div class="color-shape big square yellow">Argon</div>
+  <div class="color-shape tall round red">Potassium</div>
+  <div class="color-shape tall round blue">Calcium</div>
+  <div class="color-shape tall round yellow">Scandium</div>
+  <div class="color-shape tall square red">Titanium</div>
+  <div class="color-shape tall square blue">Vanadium</div>
+  <div class="color-shape tall square yellow">Chromium</div>
+</div>
+			</div>
 
-			<div class="row isotope-grid">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0 label-new" data-label="New">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/product-01.jpg" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Esprit Ruffle Shirt
-								</a>
-
-								<span class="stext-105 cl3">
-									$16.64
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart1 dis-block trans-04" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-01.png" alt="ICON">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart2 dis-block trans-04 ab-t-l" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item shoes">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/product-09.jpg" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Converse All Star Hi Plimsolls
-								</a>
-
-								<span class="stext-105 cl3">
-									$75.00
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart1 dis-block trans-04" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-01.png" alt="ICON">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart2 dis-block trans-04 ab-t-l" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/product-11.jpg" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Herschel supply 
-								</a>
-
-								<span class="stext-105 cl3">
-									$63.16
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart1 dis-block trans-04" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-01.png" alt="ICON">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart2 dis-block trans-04 ab-t-l" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/product-15.jpg" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Mini Silver Mesh Watch
-								</a>
-
-								<span class="stext-105 cl3">
-									$86.85
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart1 dis-block trans-04" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-01.png" alt="ICON">
-									<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart2 dis-block trans-04 ab-t-l" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
 			</div>
 
 			<!-- Pagination -->
@@ -768,6 +697,27 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- <script type="text/javascript">
+		var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+		$('.submit-search').click(function(){
+			var key =  $('.search-product').val();
+
+		    jQuery.ajax({
+			    type: "GET",
+			    url: ajaxurl,
+			  	data : {
+                	action : 'search-product',
+                	key : key,
+            	},
+			    success: function(data){
+			    	
+			    	
+			       $('.has-search').html(data);
+			    }
+			});
+		});
+	</script> -->
 
 
 

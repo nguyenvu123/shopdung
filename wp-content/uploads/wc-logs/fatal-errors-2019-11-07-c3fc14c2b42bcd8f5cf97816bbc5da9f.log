@@ -1,0 +1,10 @@
+2019-11-07T14:39:12+00:00 CRITICAL syntax error, unexpected 'var' (T_VAR) in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\page\home.php on line 624
+
+2019-11-07T14:39:23+00:00 CRITICAL syntax error, unexpected 'foreach' (T_FOREACH) in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\page\home.php on line 625
+
+2019-11-07T15:13:52+00:00 CRITICAL syntax error, unexpected end of file in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\inc\setup.php on line 129
+
+2019-11-07T15:14:37+00:00 CRITICAL syntax error, unexpected end of file in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\inc\setup.php on line 130
+
+2019-11-07T15:14:38+00:00 CRITICAL syntax error, unexpected end of file in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\inc\setup.php on line 130
+

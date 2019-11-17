@@ -1,0 +1,14 @@
+2019-11-09T07:01:48+00:00 CRITICAL syntax error, unexpected 'endif' (T_ENDIF) in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\search-product.php on line 35
+
+2019-11-09T07:02:30+00:00 CRITICAL syntax error, unexpected 'endif' (T_ENDIF) in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\search-product.php on line 35
+
+2019-11-09T07:03:19+00:00 CRITICAL syntax error, unexpected 'endif' (T_ENDIF) in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\search-product.php on line 36
+
+2019-11-09T07:04:48+00:00 CRITICAL Object of class WP_Query could not be converted to string in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\search-product.php on line 17
+
+2019-11-09T09:28:11+00:00 CRITICAL Object of class WP_Query could not be converted to string in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\search-product.php on line 17
+
+2019-11-09T09:28:34+00:00 CRITICAL Object of class WP_Query could not be converted to string in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\search-product.php on line 17
+
+2019-11-09T09:35:36+00:00 CRITICAL syntax error, unexpected '}' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\search-product.php on line 37
+
