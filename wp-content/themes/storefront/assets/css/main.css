@@ -3334,3 +3334,6 @@ input.num-product::-webkit-inner-spin-button {
   display: flex;
   flex-wrap: wrap;
 }
+.isotope-item {
+  position: static !important;
+}

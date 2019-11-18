@@ -353,8 +353,8 @@
 				</h3>
 			</div>
 
-			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+			<div class="flex-w flex-sb-m p-b-52 main-search">
+				<div class="flex-w flex-l-m filter-tope-group m-tb-10 button-group" data-filter-group="color">
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
 						All Products
 					</button>
@@ -588,7 +588,7 @@
 		
 
 			<div class="row isotope-grid">
-				<div class="has-search">
+				<div class="has-search grid">
 				<?php 
 					
 				$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
@@ -617,7 +617,7 @@
 				  	
 				  	?>
 					
-					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?= $terms[0]->slug ?>">
+					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?= $terms[0]->slug ?>  color-shape small round red">
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-pic hov-img0 label-new" data-label="New">
@@ -655,32 +655,7 @@
 				endif;
 
 			?>
-			<div class="grid">
-  <div class="color-shape small round red">Hydrogen</div>
-  <div class="color-shape small round blue">Helium</div>
-  <div class="color-shape small round yellow">Lithium</div>
-  <div class="color-shape small square red">Beryllium</div>
-  <div class="color-shape small square blue">Boron</div>
-  <div class="color-shape small square yellow">Carbon</div>
-  <div class="color-shape wide round red">Nitrogen</div>
-  <div class="color-shape wide round blue">Oxygen</div>
-  <div class="color-shape wide round yellow">Fluorine</div>
-  <div class="color-shape wide square red">Neon</div>
-  <div class="color-shape wide square blue">Sodium</div>
-  <div class="color-shape wide square yellow">Magnesium</div>
-  <div class="color-shape big round red">Aluminum</div>
-  <div class="color-shape big round blue">Silicon</div>
-  <div class="color-shape big round yellow">Phosphorus</div>
-  <div class="color-shape big square red">Sulfur</div>
-  <div class="color-shape big square blue">Chlorine</div>
-  <div class="color-shape big square yellow">Argon</div>
-  <div class="color-shape tall round red">Potassium</div>
-  <div class="color-shape tall round blue">Calcium</div>
-  <div class="color-shape tall round yellow">Scandium</div>
-  <div class="color-shape tall square red">Titanium</div>
-  <div class="color-shape tall square blue">Vanadium</div>
-  <div class="color-shape tall square yellow">Chromium</div>
-</div>
+		
 			</div>
 
 			</div>

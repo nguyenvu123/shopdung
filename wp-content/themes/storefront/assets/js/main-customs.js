@@ -221,6 +221,8 @@ $('.js-show-search').on('click',function(){
 });
 var buttonFilters = {};
 var buttonFilter;
+
+ //    var $filter = $('.filter-tope-group');
 // quick search regex
 var qsRegex;
 
@@ -235,7 +237,7 @@ var $grid = $('.grid').isotope({
   },
 });
 
-$('.filters').on( 'click', '.button', function() {
+$('.main-search').on( 'click', 'button', function() {
   var $this = $(this);
   // get group key
   var $buttonGroup = $this.parents('.button-group');
@@ -246,7 +248,8 @@ $('.filters').on( 'click', '.button', function() {
   buttonFilter = concatValues( buttonFilters );
   // Isotope arrange
   $grid.isotope();
-});
+});  
+ 
 
 // use value of search field to filter
 var $quicksearch = $('.quicksearch').keyup( debounce( function() {
