@@ -337,8 +337,8 @@
 				<?php 
 				}
 				endwhile;
-			endif;
-				 ?>
+				endif;
+				?>
 			</div>
 		</div>
 	</div>
@@ -355,7 +355,7 @@
 
 			<div class="flex-w flex-sb-m p-b-52 main-search">
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10 button-group" data-filter-group="color">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1 btn-all" data-filter="">
 						All Products
 					</button>
 					<?php
@@ -364,7 +364,7 @@
 						
 							if($category->name != 'Uncategorized') {
 							?>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".<?=$category->slug ?>">
+							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter="<?=$category->slug ?>">
 								<?=$category->name ?>
 							</button>
 							<?php
@@ -587,8 +587,8 @@
 			</div>
 		
 
-			<div class="row isotope-grid">
-				<div class="has-search grid">
+			<div class="row isotope-grid ">
+				
 				<?php 
 					
 				$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
@@ -616,6 +616,9 @@
 				 
 				  	
 				  	?>
+				  	
+				  		
+				  
 					
 					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?= $terms[0]->slug ?>  color-shape small round red">
 						<!-- Block2 -->
@@ -648,19 +651,23 @@
 							</div>
 						</div>
 					</div>
+
 				
 
 				<?php
+				wp_reset_postdata();
 				endwhile;
 				endif;
 
 			?>
 		
-			</div>
+			
 
 			</div>
 
 			<!-- Pagination -->
+
+			
 			<div class="flex-c-m flex-w w-full p-t-38">
 				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
 					1
@@ -673,10 +680,38 @@
 		</div>
 	</section>
 
-	<!-- <script type="text/javascript">
-		var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+	<script type="text/javascript">
+		$(document).keypress(function(event){
+	
+			var keycode = (event.keyCode ? event.keyCode : event.which);
+			if(keycode == '13'){
+				var key = $('.search-product').val();
+				search(key);	
+			}
+			
+		});
+
 		$('.submit-search').click(function(){
-			var key =  $('.search-product').val();
+			var key = $('.search-product').val();
+			search(key);
+		});
+
+		$('.filter-tope-group button').click(function(index) {
+			$('.filter-tope-group button').removeClass('how-active1');
+			$(this).addClass('how-active1');
+			var key = $('.search-product').val();
+			var filter  = $(this).attr('data-filter');
+			search(key, filter);
+		});
+
+		$('.btn-all').click(function() {
+			var key = $('.search-product').val();
+			search(key);
+		});
+
+		function search(key, filter) {
+			var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+			var key = key;  
 
 		    jQuery.ajax({
 			    type: "GET",
@@ -684,15 +719,15 @@
 			  	data : {
                 	action : 'search-product',
                 	key : key,
+                	filter: filter
             	},
 			    success: function(data){
-			    	
-			    	
-			       $('.has-search').html(data);
+			       $('.isotope-grid').html(data);
 			    }
 			});
-		});
-	</script> -->
+		}
+		
+	</script>
 
 
 

@@ -1,20 +1,40 @@
 <?php 
 global $post; 
-	if(isset($_GET['key']) ) {
-		$key =  $_GET['key'];
-		$args = array(
 
-			'post_type' => 'product',
-			'posts_per_page' => 16,
-			'type' => 'NUMERIC',
-			's'   => $key,
+	$key =  $_GET['key'];
+	$filter =  $_GET['filter'];
+	$args = array(
 
+		'post_type' => 'product',
+		'posts_per_page' => 16,
+		'type' => 'NUMERIC',
 		);
+
+		if($key) {
+			$args  = array('s' => $key);
+		}
+
+		if($filter) {
+
+			$args['tax_query'] = array(
+		        array (
+		            'taxonomy' => 'product_cat',
+		            'field' => 'slug',
+		            'terms' => $filter
+		        )
+		    );
+		}
+
+	
 		$loop = new WP_Query( $args );
+		if($loop->post_count ==0) {
+			echo 'Không có kết quả nào phù hợp với kết quả tìm kiếm của bạn !';
+		}
 		if ( $loop->have_posts() ) :
 			while ( $loop->have_posts() ) : $loop->the_post();
 			global $product; 
 			$terms = get_the_terms( $post->ID, 'product_cat' );
+
 			
 			?>
 
@@ -53,5 +73,5 @@ global $post;
 			 <?php
 			endwhile;
 		endif;
-	}
+	
 ?>

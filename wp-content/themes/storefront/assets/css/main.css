@@ -3330,10 +3330,3 @@ input.num-product::-webkit-inner-spin-button {
   }
 
 }
-.has-search {
-  display: flex;
-  flex-wrap: wrap;
-}
-.isotope-item {
-  position: static !important;
-}
