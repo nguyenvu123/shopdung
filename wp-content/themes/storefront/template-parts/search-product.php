@@ -3,11 +3,23 @@ global $post;
 
 	$key =  $_GET['key'];
 	$filter =  $_GET['filter'];
+	$paged =  $_GET['paged'];
 	$args = array(
 
 		'post_type' => 'product',
 		'posts_per_page' => 16,
 		'type' => 'NUMERIC',
+		'paged'  => $paged,
+			'meta_query' => array(
+		        array(
+		            'key' => '_stock_status',
+		            'value' => 'instock'
+		        ),
+		        array(
+		            'key' => '_backorders',
+		            'value' => 'no'
+		        ),
+		    )
 		);
 
 		if($key) {
@@ -30,6 +42,10 @@ global $post;
 		if($loop->post_count ==0) {
 			echo 'Không có kết quả nào phù hợp với kết quả tìm kiếm của bạn !';
 		}
+		?>
+		
+
+		<?php
 		if ( $loop->have_posts() ) :
 			while ( $loop->have_posts() ) : $loop->the_post();
 			global $product; 
@@ -72,6 +88,12 @@ global $post;
 
 			 <?php
 			endwhile;
+			wp_reset_postdata();
+    		wp_reset_query();
 		endif;
 	
 ?>
+
+<div class="navigation ajax flex-c-m flex-w w-full p-t-38" data-paged="<?= $paged ?>"><?php wp_pagenavi( array( 'query' => $loop ) ); ?></div>
+
+

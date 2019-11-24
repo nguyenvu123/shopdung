@@ -585,87 +585,14 @@
 					</div>
 				</div>
 			</div>
-		
-
 			<div class="row isotope-grid ">
+
+			<?php include( locate_template( 'template-parts/search-product.php', false, false ) );  ?>
 				
-				<?php 
-					
-				$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
-
-					$args = array(
-						'post_type' => 'product',
-						'posts_per_page' => 16,
-						'paged'  => $paged,
-						'meta_query' => array(
-					        array(
-					            'key' => '_stock_status',
-					            'value' => 'instock'
-					        ),
-					        array(
-					            'key' => '_backorders',
-					            'value' => 'no'
-					        ),
-					    )
-					);
-
-					$loop = new WP_Query( $args );
-					if ( $loop->have_posts() ) :
-					while ( $loop->have_posts() ) : $loop->the_post();
-				  	$terms = get_the_terms( $post->ID, 'product_cat' );
-				 
-				  	
-				  	?>
-				  	
-				  		
-				  
-					
-					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?= $terms[0]->slug ?>  color-shape small round red">
-						<!-- Block2 -->
-						<div class="block2">
-							<div class="block2-pic hov-img0 label-new" data-label="New">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/product-01.jpg" alt="IMG-PRODUCT">
-
-								<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-									Quick View
-								</a>
-							</div>
-
-							<div class="block2-txt flex-w flex-t p-t-14">
-								<div class="block2-txt-child1 flex-col-l ">
-									<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-										<?=$post->post_title; ?>
-									</a>
-
-									<span class="stext-105 cl3">
-										$16.64
-									</span>
-								</div>
-
-								<div class="block2-txt-child2 flex-r p-t-3">
-									<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-										<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart1 dis-block trans-04" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-01.png" alt="ICON">
-										<img class="<?php echo get_template_directory_uri(); ?>/assets/icon-heart2 dis-block trans-04 ab-t-l" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-heart-02.png" alt="ICON">
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				
-
-				<?php
-				wp_reset_postdata();
-				endwhile;
-				endif;
-
-			?>
-		
-			
-
 			</div>
 
 			<!-- Pagination -->
+		
 
 			
 			<div class="flex-c-m flex-w w-full p-t-38">
@@ -680,8 +607,10 @@
 		</div>
 	</section>
 
-	<script type="text/javascript">
+<script type="text/javascript">
+		var filter  = $(this).attr('data-filter');
 		$(document).keypress(function(event){
+
 	
 			var keycode = (event.keyCode ? event.keyCode : event.which);
 			if(keycode == '13'){
@@ -692,8 +621,10 @@
 		});
 
 		$('.submit-search').click(function(){
+			 var paged = $('.navigation.ajax').attr('data-paged');
 			var key = $('.search-product').val();
-			search(key);
+			var filter  = $(this).attr('data-filter');
+			search(key, filter, paged);
 		});
 
 		$('.filter-tope-group button').click(function(index) {
@@ -701,25 +632,28 @@
 			$(this).addClass('how-active1');
 			var key = $('.search-product').val();
 			var filter  = $(this).attr('data-filter');
-			search(key, filter);
+			var paged = $('.navigation.ajax').attr('data-paged');
+			search(key, filter, paged);
 		});
 
 		$('.btn-all').click(function() {
+			var filter  = $(this).attr('data-filter');
+			var paged = $('.navigation.ajax').attr('data-paged');
 			var key = $('.search-product').val();
-			search(key);
+			search(key, filter, paged);
 		});
 
-		function search(key, filter) {
+		function search(key, filter, paged) {
 			var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-			var key = key;  
-
+		
 		    jQuery.ajax({
 			    type: "GET",
 			    url: ajaxurl,
 			  	data : {
-                	action : 'search-product',
-                	key : key,
-                	filter: filter
+                	'action' : 'search-product',
+                	'key' : key,
+                	'filter': filter,
+                	'paged': paged,
             	},
 			    success: function(data){
 			       $('.isotope-grid').html(data);
@@ -727,6 +661,26 @@
 			});
 		}
 		
+		$(document).on('click', '.navigation.ajax a', function(e) {
+
+			var key = $('.search-product').val();
+            var paged = $('.navigation.ajax').attr('data-paged');
+            var url = $(this).attr('href');
+            var match = url.match(/(\d+)/);
+
+            if (match) {
+                paged = match[1];
+            } else {
+                match = url.match(/paged=(\d+)/);
+                if (match) {
+                    paged = match[1];
+                } else {
+                    paged = 1;
+                }
+            }
+            search(key, filter, paged);
+            return false;
+		 });
 	</script>
 
 

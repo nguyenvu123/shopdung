@@ -123,11 +123,8 @@ function evatheme_scripts() {
 
 function callback_function_search() {
 
-    // $wp_ajax = true;
-
-    
-
-
+    $wp_ajax = true;
+   
     ob_start();
 
     include( locate_template('template-parts/search-product.php', false, false ));
