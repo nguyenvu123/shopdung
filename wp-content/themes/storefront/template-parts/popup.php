@@ -3,7 +3,10 @@
 	global $post; 
 	$idProduct = isset($_GET['idProduct']) ?  $_GET['idProduct'] : '';
 	
-
+		$object = wc_get_product( $idProduct );
+		// $data = get_post_meta( $ID );
+		 // var_dump($object->);
+	
 	?>
 
 	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
@@ -60,7 +63,7 @@
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-								Lightweight Jacket
+								 <?php echo  $object->get_id() ?>
 							</h4>
 
 							<span class="mtext-106 cl2">
