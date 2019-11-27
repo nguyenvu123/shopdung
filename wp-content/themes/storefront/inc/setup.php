@@ -140,3 +140,23 @@ function callback_function_search() {
 add_action( 'wp_ajax_search-product', 'callback_function_search' );    // If called from admin panel
 add_action( 'wp_ajax_nopriv_search-product', 'callback_function_search' );
 
+
+
+function callback_product_detail() {
+
+    $wp_ajax = true;
+   
+    ob_start();
+
+    include( locate_template('template-parts/popup.php', false, false ));
+
+    $content = ob_get_clean();
+
+    echo  $content;
+   
+    die();
+      
+}
+
+add_action( 'wp_ajax_product-detail', 'callback_product_detail' );    // If called from admin panel
+add_action( 'wp_ajax_nopriv_product-detail', 'callback_product_detail' );

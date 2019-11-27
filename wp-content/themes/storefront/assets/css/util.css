@@ -54,6 +54,38 @@ button:focus {outline: none;}
 
 iframe {border: none;}
 
+.wp-pagenavi  {
+	display: flex;
+}
+.wp-pagenavi .pages {
+  display: none;
+}
+
+.wp-pagenavi a, .wp-pagenavi span {
+	width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    color: black;
+    border: 1px solid  #8a8686;
+    transition:  all .3s;
+}
+.wp-pagenavi a:hover {
+	background: #8a8686;
+	color: white;
+}
+.wp-pagenavi .current {
+	background: #8a8686;
+	color: white;
+}
+
+.wp-pagenavi .nextpostslink , .wp-pagenavi .previouspostslink{
+	display: none;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT SIZE ]*/

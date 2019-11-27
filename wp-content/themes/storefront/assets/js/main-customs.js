@@ -369,26 +369,15 @@ $('.js-show-search').on('click',function(){
     
     /*==================================================================
     [ Show modal1 ]*/
-    $('.js-show-modal1').on('click',function(e){
-        e.preventDefault();
-        $('.js-modal1').addClass('show-modal1');
-    });
-
-    $('.js-hide-modal1').on('click',function(){
-        console.log("okok");
-        $('.js-modal1').removeClass('show-modal1');
-    });
 
 
+    	
 
-
-
+    	$(document).on('click', '.js-hide-modal1', function(e) { 
+        	$('.js-modal1').removeClass('show-modal1');
+	    });
 
     //customs
-
-
-
-
 	});
 
 })(jQuery);

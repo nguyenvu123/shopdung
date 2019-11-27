@@ -592,22 +592,12 @@
 			</div>
 
 			<!-- Pagination -->
-		
-
-			
-			<div class="flex-c-m flex-w w-full p-t-38">
-				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
-					1
-				</a>
-
-				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
-					2
-				</a>
-			</div>
+	
 		</div>
 	</section>
 
 <script type="text/javascript">
+		var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 		var filter  = $(this).attr('data-filter');
 		$(document).keypress(function(event){
 
@@ -681,6 +671,31 @@
             search(key, filter, paged);
             return false;
 		 });
+
+
+
+		///popup detail product
+
+		$(document).on('click', '.js-show-modal1', function(e) { 
+        	e.preventDefault();
+        	
+        	var idProduct =  $(this).attr('data-id');
+        	console.log(idProduct);
+            jQuery.ajax({
+                type: "GET",
+                url: ajaxurl,
+
+                data : {
+                	
+                    'action' : 'product-detail',
+                    'idProduct':  idProduct
+                    
+                },
+                success: function(data){
+                 	$('.js-modal1').addClass('show-modal1');
+                }
+            });
+    	});
 	</script>
 
 

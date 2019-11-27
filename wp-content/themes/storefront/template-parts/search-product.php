@@ -21,7 +21,6 @@ global $post;
 		        ),
 		    )
 		);
-
 		if($key) {
 			$args  = array('s' => $key);
 		}
@@ -60,20 +59,33 @@ global $post;
 						<div class="block2-pic hov-img0 label-new" data-label="New">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/product-01.jpg" alt="IMG-PRODUCT">
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" data-id='<?=$post->ID ?>' >
+								CHI TIẾT
 							</a>
+
+
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
 								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									<?=$product->name;?> 
+
 								</a>
+								
+									
+							
+								<?php if ( $product->is_on_sale() ) { ?> 
+								<div class="price">
+									<span class="regular_price"><?= number_format($product->get_regular_price()); ?> đ</span>
+									<span class="sale"><?= number_format($product->get_sale_price()); ?> đ</span>
+								</div>
+								<?php }else { ?>
 
 								<span class="stext-105 cl3">
-									$16.64
+									<?= number_format($product->get_regular_price()) ?>đ
 								</span>
+							<?php } ?>
 							</div>
 
 							<div class="block2-txt-child2 flex-r p-t-3">
@@ -95,5 +107,3 @@ global $post;
 ?>
 
 <div class="navigation ajax flex-c-m flex-w w-full p-t-38" data-paged="<?= $paged ?>"><?php wp_pagenavi( array( 'query' => $loop ) ); ?></div>
-
-
