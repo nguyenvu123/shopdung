@@ -154,16 +154,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 
 	<!-- Modal1 -->
-	<?php include( locate_template( 'template-parts/popup.php', false, false ) );  ?>
+	<div class="popup-detail-product">
+		
+	</div>
 
-	<script>
-		jQuery(".js-select2").each(function(){
-			jQuery(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: jQuery(this).next('.dropDownSelect2')
-			});
-		})
-	</script>
 
 	<script>
 		jQuery('.gallery-lb').each(function() { // the containers for all your galleries

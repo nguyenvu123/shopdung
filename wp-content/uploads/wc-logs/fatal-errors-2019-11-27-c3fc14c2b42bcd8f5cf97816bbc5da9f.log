@@ -252,3 +252,67 @@ Stack trace:
 #8 {main}
   thrown in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 66
 
+2019-11-27T13:09:07+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on boolean in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php:66
+Stack trace:
+#0 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\footer.php(157): include()
+#1 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(722): require_once('D:\\xampp2\\htdoc...')
+#2 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(671): load_template('D:\\xampp2\\htdoc...', true)
+#3 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\general-template.php(76): locate_template(Array, true)
+#4 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\page\home.php(703): get_footer()
+#5 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template-loader.php(78): include('D:\\xampp2\\htdoc...')
+#6 D:\xampp2\htdocs\shopping\shoptinhteo\wp-blog-header.php(19): require_once('D:\\xampp2\\htdoc...')
+#7 D:\xampp2\htdocs\shopping\shoptinhteo\index.php(17): require('D:\\xampp2\\htdoc...')
+#8 {main}
+  thrown in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 66
+
+2019-11-27T13:09:22+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on boolean in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php:66
+Stack trace:
+#0 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\footer.php(157): include()
+#1 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(722): require_once('D:\\xampp2\\htdoc...')
+#2 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(671): load_template('D:\\xampp2\\htdoc...', true)
+#3 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\general-template.php(76): locate_template(Array, true)
+#4 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\page\home.php(703): get_footer()
+#5 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template-loader.php(78): include('D:\\xampp2\\htdoc...')
+#6 D:\xampp2\htdocs\shopping\shoptinhteo\wp-blog-header.php(19): require_once('D:\\xampp2\\htdoc...')
+#7 D:\xampp2\htdocs\shopping\shoptinhteo\index.php(17): require('D:\\xampp2\\htdoc...')
+#8 {main}
+  thrown in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 66
+
+2019-11-27T13:10:10+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on boolean in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php:66
+Stack trace:
+#0 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\footer.php(157): include()
+#1 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(722): require_once('D:\\xampp2\\htdoc...')
+#2 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(671): load_template('D:\\xampp2\\htdoc...', true)
+#3 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\general-template.php(76): locate_template(Array, true)
+#4 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\page\home.php(703): get_footer()
+#5 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template-loader.php(78): include('D:\\xampp2\\htdoc...')
+#6 D:\xampp2\htdocs\shopping\shoptinhteo\wp-blog-header.php(19): require_once('D:\\xampp2\\htdoc...')
+#7 D:\xampp2\htdocs\shopping\shoptinhteo\index.php(17): require('D:\\xampp2\\htdoc...')
+#8 {main}
+  thrown in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 66
+
+2019-11-27T13:32:27+00:00 CRITICAL Uncaught Error: Call to a member function get_title() on boolean in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php:66
+Stack trace:
+#0 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\footer.php(158): include()
+#1 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(722): require_once('D:\\xampp2\\htdoc...')
+#2 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template.php(671): load_template('D:\\xampp2\\htdoc...', true)
+#3 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\general-template.php(76): locate_template(Array, true)
+#4 D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\page\home.php(704): get_footer()
+#5 D:\xampp2\htdocs\shopping\shoptinhteo\wp-includes\template-loader.php(78): include('D:\\xampp2\\htdoc...')
+#6 D:\xampp2\htdocs\shopping\shoptinhteo\wp-blog-header.php(19): require_once('D:\\xampp2\\htdoc...')
+#7 D:\xampp2\htdocs\shopping\shoptinhteo\index.php(17): require('D:\\xampp2\\htdoc...')
+#8 {main}
+  thr in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 66
+
+2019-11-27T14:53:58+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 8
+
+2019-11-27T14:54:15+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 8
+
+2019-11-27T14:54:39+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 8
+
+2019-11-27T14:54:52+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 8
+
+2019-11-27T14:55:49+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 85
+
+2019-11-27T14:56:14+00:00 CRITICAL syntax error, unexpected ')' in D:\xampp2\htdocs\shopping\shoptinhteo\wp-content\themes\storefront\template-parts\popup.php on line 8
+
