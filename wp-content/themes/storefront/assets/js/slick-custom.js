@@ -8,7 +8,6 @@
         [ Slick1 ]*/
 
         $('.wrap-slick1').each(function(){
-            console.log(11111111);
             var wrapSlick1 = $(this);
 
             var slick1 = $(this).find('.slick1');

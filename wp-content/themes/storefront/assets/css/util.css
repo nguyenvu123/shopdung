@@ -60,6 +60,22 @@ iframe {border: none;}
 .wp-pagenavi .pages {
   display: none;
 }
+/*.xoo-wsc-modal .xoo-wsc-basket {
+	position: fixed;
+    top: 10px;
+    width: auto;
+    height: 57px;
+    right: 95px;
+    background: transparent;
+    box-shadow: none;
+    transition: all .3s;
+}
+.zmdi-shopping-cart:before {
+	font-size: 27px;
+}
+.xoo-wsc-modal.fix-menu-desktop .xoo-wsc-basket {
+	top: 5px;
+}*/
 
 .wp-pagenavi a, .wp-pagenavi span {
 	width: 35px;

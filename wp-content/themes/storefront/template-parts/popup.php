@@ -142,6 +142,8 @@
 										</div>
 
 										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+
+                                            <?php echo do_shortcode( "[ajax_add_to_cart id='$idProduct' text='Mua ngay!']" ); ?>
 											Add to cart
 										</button>
 									</div>

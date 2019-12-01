@@ -40,18 +40,18 @@
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m h-full">							
-						<div class="flex-c-m h-full p-r-25 bor6">
+						<!-- <div class="flex-c-m h-full p-r-25 bor6">
 							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
-						</div>
+						</div> -->
 							
 						<div class="flex-c-m h-full p-lr-19">
 							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
 								<i class="zmdi zmdi-menu"></i>
 							</div>
 						</div>
-					</div>
+					</div> 
 				</nav>
 			</div>	
 		</div>
@@ -64,13 +64,13 @@
 			</div>
 
 			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
+			<!-- <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
 				<div class="flex-c-m h-full p-r-5">
 					<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
 						<i class="zmdi zmdi-shopping-cart"></i>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 			<!-- Button show menu -->
 			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
